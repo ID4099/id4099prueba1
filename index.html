@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Bare - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <h4 class="navbar-brand">Validando los datos con Prueba1</h4>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="p-5">
+          <div class="text-center">
+            <h1 class="h4 text-gray-900 mb-4">Registre los siguientes Datos!</h1>
+          </div>
+          <form id="myFormRegister" class="user" action="index.html">
+            <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="text" class="form-control required-value" id="nombreNuevo" autocomplete="off" placeholder="Nombre">
+              </div>
+              <div class="col-sm-6">
+                <input type="text" class="form-control required-value" id="apellidoNuevo" autocomplete="off" placeholder="Apellido">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input type="text" class="form-control required-value rut-validate" id="rutNuevo" autocomplete="off" onfocusout="rutValidate('#rutNuevo')" placeholder="RUT">
+                </div>
+                <div class="col-sm-6">
+                  <input type="email" class="form-control required-value email-validate" id="emailNuevo" autocomplete="off" placeholder="Agregue su E-mail...">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="password" class="form-control required-value" id="claveNuevo" autocomplete="off" placeholder="Contraseña">
+              </div>
+              <div class="col-sm-6">
+                <input type="password" class="form-control required-value" id="claveRepetirNuevo" autocomplete="off" placeholder="Repetir Contraseña">
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-block" onclick='formValidations("#myFormRegister", "#claveNuevo", "#claveRepetirNuevo");'>Registrarme</button>
+          </form>
+          <hr>
+          <h6>Derechos reservados a la empresa 2020.</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.slim.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+  <!--Scripts de funciones personaliadas-->
+  <!--Scripts de funciones personaliadas-->
+  <!--Scripts de funciones personaliadas-->
+
+  <!--Integrando los script personales de validacion-->
+  <script src="javascript/jquery.rut.js"></script>
+  <script src="javascript/scriptMardach.js"></script>
+
+  <!--Llamando a las librerias de sweetAlert-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+</body>
+
+</html>
