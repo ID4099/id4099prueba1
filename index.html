@@ -8,10 +8,11 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Bare - Start Bootstrap Template</title>
+  <title>Administrador</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="icomoon/style.css" rel="stylesheet">
 
 </head>
 
@@ -20,51 +21,153 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <h4 class="navbar-brand">Validando los datos con Prueba1</h4>
+      
+      <h4 class="navbar-brand"><span class="icon-github"></span> Funciones</h4>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mr-sm-2">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#nuevoRegistroModal">Nuevo Ingreso <span class="icon-plus"></span></a>
+          </li>
+          <li class="nav-item mr-sm-2">
+            <a class="nav-link" href="#" onclick="esperarConfirmacion('La librería de JS-PDF aún no esta habilitada espere confirmación.')">Imprimir <span class="icon-file-pdf"></span></a>
+          </li>
+          <li class="nav-item mr-sm-2">
+            <a class="nav-link" href="#" onclick="esperarConfirmacion('La plantilla de mi CV virtual aún no esta habilitada.')">Mi Curriculum Virtual <span class="icon-profile"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#logoutModal">Salir <span class="icon-exit"></span></a>
+          </li>
+        </ul>
     </div>
   </nav>
 
-  <!-- Page Content -->
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-7">
-        <div class="p-5">
-          <div class="text-center">
-            <h1 class="h4 text-gray-900 mb-4">Registre los siguientes Datos!</h1>
+  <!-- Modal de Nuevo Registro-->
+  <div class="modal fade" id="nuevoRegistroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Registre los siguientes Datos!</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+          <div class="row justify-content-center">
+            <div class="col">
+            
+                <form id="myFormRegister" class="user" action="javascript:void(0);" method="POST" onsubmit="app.Add()">
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input type="text" class="form-control required-value" id="nombreNuevo" autocomplete="off" placeholder="Nombre">
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control required-value" id="apellidoNuevo" autocomplete="off" placeholder="Apellido">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="text" class="form-control required-value rut-validate" id="rutNuevo" autocomplete="off" onfocusout="rutValidate('#rutNuevo')" placeholder="RUT">
+                      </div>
+                      <div class="col-sm-6">
+                        <input type="email" class="form-control required-value email-validate" id="emailNuevo" autocomplete="off" placeholder="Agregue su E-mail...">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input type="password" class="form-control required-value" id="claveNuevo" autocomplete="off" placeholder="Contraseña">
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="password" class="form-control required-value" id="claveRepetirNuevo" autocomplete="off" placeholder="Repetir Contraseña">
+                    </div>
+                  </div>
+                  <button id="btnRegistrar" type="button" class="btn btn-primary btn-block" onclick='formValidations("#myFormRegister", "#claveNuevo", "#claveRepetirNuevo");'>Registrarme</button>
+                </form>
+              
+            </div>
           </div>
-          <form id="myFormRegister" class="user" action="index.html">
-            <div class="form-group row">
-              <div class="col-sm-6 mb-3 mb-sm-0">
-                <input type="text" class="form-control required-value" id="nombreNuevo" autocomplete="off" placeholder="Nombre">
-              </div>
-              <div class="col-sm-6">
-                <input type="text" class="form-control required-value" id="apellidoNuevo" autocomplete="off" placeholder="Apellido">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                  <input type="text" class="form-control required-value rut-validate" id="rutNuevo" autocomplete="off" onfocusout="rutValidate('#rutNuevo')" placeholder="RUT">
-                </div>
-                <div class="col-sm-6">
-                  <input type="email" class="form-control required-value email-validate" id="emailNuevo" autocomplete="off" placeholder="Agregue su E-mail...">
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-6 mb-3 mb-sm-0">
-                <input type="password" class="form-control required-value" id="claveNuevo" autocomplete="off" placeholder="Contraseña">
-              </div>
-              <div class="col-sm-6">
-                <input type="password" class="form-control required-value" id="claveRepetirNuevo" autocomplete="off" placeholder="Repetir Contraseña">
-              </div>
-            </div>
-            <button type="button" class="btn btn-primary btn-block" onclick='formValidations("#myFormRegister", "#claveNuevo", "#claveRepetirNuevo");'>Registrarme</button>
-          </form>
-          <hr>
-          <h6>Derechos reservados a la empresa 2020.</h6>
+        </div>
+
+        <div class="modal-footer">
         </div>
       </div>
+    </div>
+  </div>
+
+  <!--Modal Editar Datos-->
+  <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Actualizar Datos</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <form action="javascript:void(0);" method="POST" id="actualizar">
+            <input class="form-control required-value mb-3" type="text" id="edit-nombre" value="1">
+            <input class="form-control required-value mb-3" type="text" id="edit-apellido" value="1">
+            <input class="form-control required-value email-validate mb-3" type="text" id="edit-email" value="111@g11.11">
+            <button class="btn btn-success btn-block mb-0" type="submit" onclick="accionRealizada(); CloseInput(); salirModalEditar();" aria-label="Close"> Actualizar</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          Asegurece que los datos esten correctos.
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">En realidad desea salir?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Selecione las opciones.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-danger" href="login.html">Salir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="container">
+      
+      <p id="counter"></p>
+      
+      <div class="table-responsive-sm">
+        <table class="table table-sm table-hover">
+          <thead class="thead-light">
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th class="text-center">E-mail</th class="text-center">
+              <th>Editar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody id="countries">
+          </tbody>
+        </table>
+      </div>
+      
     </div>
   </div>
 
@@ -80,6 +183,7 @@
   <!--Integrando los script personales de validacion-->
   <script src="javascript/jquery.rut.js"></script>
   <script src="javascript/scriptMardach.js"></script>
+  <script src="javascript/crud.javascript.js"></script>
 
   <!--Llamando a las librerias de sweetAlert-->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>

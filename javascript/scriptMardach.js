@@ -71,6 +71,42 @@ function rutValidate(idCampoRut){
     }
 }
 
+function salirModal(){
+
+        $("#nuevoRegistroModal").modal("hide");
+
+}
+
+function salirModalEditar(){
+
+    $("#modalEditar").modal("hide");
+
+}
+
+function accionRealizada(){
+    Swal.fire({
+        title: 'Mensaje',
+        text: "Acción realiada satisfactoriamente.",
+        icon: 'success',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'ok'
+    })
+}
+
+function esperarConfirmacion(mensajeTexto){
+    Swal.fire({
+        title: 'Mensaje!',
+        text: mensajeTexto,
+        icon: 'warning',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'ok'
+    })
+}
+
 function formValidations(idForm, idPassword1, idPassword2){
     if(confirmPassword(idPassword1, idPassword2) == 1){
         Swal.fire({
@@ -108,19 +144,21 @@ function formValidations(idForm, idPassword1, idPassword2){
     else{
         Swal.fire({
             title: 'Mensaje',
-            text: "Datos Ingresados Correctamente.",
+            text: "Acción realizada correctamente.",
             icon: 'success',
             showCancelButton: false,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'ok'
+            confirmButtonText: 'Continuar'
         }).
         then((result) => {
             if (result.value) {
-                $(idForm).submit();                    
+                $(idForm).submit();
+                salirModal()
             }
             else{
-                $(idForm).submit();                    
+                $(idForm).submit(); 
+                salirModal()                   
             }
         })
     }
