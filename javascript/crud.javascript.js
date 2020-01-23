@@ -8,7 +8,7 @@ var app = new function() {
       var name = 'country';
       if (data) {
         if (data > 1) {
-          name = 'countries';
+          name = 'Registros';
         }
         el.innerHTML = data + ' ' + name ;
       } else {
